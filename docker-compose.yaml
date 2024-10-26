@@ -13,3 +13,12 @@ services:
       - FLASK_APP=app  # Ensures FLASK_APP is set to the app directory
     env_file:
       - .env  # Specify the .env file if you have one
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
