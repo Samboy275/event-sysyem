@@ -11,7 +11,7 @@ from datetime import timedelta
 def create_app():
 
     app = Flask(__name__)
-    config_profile = os.environ.get("FLASK_ENV")
+    config_profile = os.environ.get("FLASK_ENV", "development")
 
     app.config.from_object(config[config_profile])
     jwt = JWTManager(app)
