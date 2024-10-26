@@ -8,3 +8,4 @@ auth_bp = Blueprint("auth", __name__)
 
 auth_bp.add_url_rule("/signup", view_func=routes.sign_up, methods=["POST"])
 auth_bp.add_url_rule("/signin", view_func=routes.sign_in, methods=["POST"])
+auth_bp.add_url_rule("/refresh-token", view_func=routes.refresh_token, methods=["POST"])
