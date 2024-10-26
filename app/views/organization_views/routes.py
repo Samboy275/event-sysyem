@@ -46,6 +46,7 @@ def serialize_members(records):
 def get_organization(organization_id):
 
     if request.method == "GET":
+        user = get_jwt_identity()
         db = get_db()
         try:
             org_id = ObjectId(organization_id)
@@ -57,6 +58,8 @@ def get_organization(organization_id):
 
         if org is None:
             return jsonify(message="Organization is not registered"), 404
+        if not any(user in member.values() for member in org['members']):
+            return jsonify(message="You are not allowed to view this organization"), 401
 
         return jsonify({
             "organization_id" : str(org["_id"]),
