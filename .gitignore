@@ -1,2 +1,48 @@
-venv/*
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+ENV/
+env/
 *.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Flask cache files
+*.log
+*.sqlite3
+
+# Docker files
+docker-compose.override.yml
+*.pid
+*.tar
+
+# MongoDB data
+mongo_data/
+data/
+dump/
+
+# Environment variables
+.env
+.env.*
+
+# Python dependencies
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
