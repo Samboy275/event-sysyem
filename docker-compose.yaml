@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"  # Map container port 5000 to host port 5000
+    volumes:
+      - .:/app       # Optional: Bind mount to enable live reloading in development
+    environment:
+      - FLASK_APP=app  # Ensures FLASK_APP is set to the app directory
+    env_file:
+      - .env  # Specify the .env file if you have one
