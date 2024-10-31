@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event System Docs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    {% include "docs/components/header.html" %}
+    <div class="content">
+        {%block content %}
+        {% endblock content %}
+    </div>
+
+    {% include "docs/components/footer.html" %}
+</body>
+</html>

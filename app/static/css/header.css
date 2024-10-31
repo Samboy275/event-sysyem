@@ -1,0 +1,13 @@
+
+
+header{
+    min-height: 40px;
+    color: #dad1d1;
+    background-color: #1f1e1e;
+    padding: 30px;
+}
+
+.title > h1{
+    color: #dad1d1;
+    background-color: #1f1e1e;
+}

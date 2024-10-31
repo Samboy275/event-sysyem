@@ -38,9 +38,12 @@ def create_organization():
 
 
 
-def serialize_members(records):
-    for record in records:
-        record.pop("_id")
+def serialize_members(data, is_list=False):
+    if is_list:
+        for record in data:
+            record.pop("_id")
+    else:
+        data.pop("_id")
 
 @jwt_required()
 def get_organization(organization_id):

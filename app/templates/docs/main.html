@@ -1,0 +1,32 @@
+{% extends 'docs/base.html' %}
+
+
+
+
+{% block content %}
+<!-- Login Request -->
+ <div class="request-content">
+    <div class="request-header">
+        <div class="request-text">
+            <div class="request-type post">POST</div>
+            <div class="request-name">Login</div>
+        </div>
+        <button>Send</button>
+
+    </div>
+    <div class="request-body">
+        <form class="login-form" method="POST" action="{{ url_for('auth.sign_in') }}">
+
+            <div class="form-input">
+                <label for="login-email">Email</label>
+                <input id="login-email" name="email" type="email">
+            </div>
+            <div class="form-input">
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password">
+            </div>
+        </form>
+    </div>
+    <div class="response-body"></div>
+ </div>
+{% endblock content %}
