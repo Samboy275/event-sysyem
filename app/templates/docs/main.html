@@ -3,9 +3,47 @@
 
 {% block head %}
     <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/add_members.js') }}"></script>
+
 {% endblock head %}
 
 {% block content %}
+ <!-- Sign up request -->
+ <div class="request-content">
+    <div class="request-header">
+        <div class="request-text">
+            <div class="request-type post">POST</div>
+            <div class="request-name">Sign up</div>
+        </div>
+
+
+    </div>
+    <div class="request-body">
+        <form class="signup-form" method="POST" action="{{ url_for('auth.sign_up') }}">
+            <div class="request-button">
+                <input type="text" value="{{ url_for('auth.sign_up') }}" disabled>
+                <button name="submit">Send</button>
+            </div>
+            <div class="form-input">
+                <label for="signup-name">Name</label>
+                <input type="text" id="signup-name" name="name">
+            </div>
+            <div class="form-input">
+                <label for="signup-email">Email</label>
+                <input id="signup-email" name="email" type="email">
+            </div>
+            <div class="form-input">
+                <label for="signup-password">Password</label>
+                <input id="signup-password" name="password" type="password">
+            </div>
+            <input name="response-element" value="signup-json" hidden>
+        </form>
+    </div>
+    <div class="response-body" id="signup-response">
+        <pre id="signup-json"></pre>
+    </div>
+ </div>
+
 <!-- Login Request -->
  <div class="request-content">
     <div class="request-header">
@@ -30,10 +68,77 @@
                 <label for="login-password">Password</label>
                 <input id="login-password" name="password" type="password">
             </div>
+            <input name="response-element" value="login-json" hidden>
         </form>
     </div>
     <div class="response-body" id="login-response">
         <pre id="login-json"></pre>
     </div>
  </div>
+
+
+<!-- Refresh token Request -->
+ <div class="request-content">
+    <div class="request-header">
+        <div class="request-text">
+            <div class="request-type post">POST</div>
+            <div class="request-name">Refresh Token</div>
+        </div>
+
+
+    </div>
+    <div class="request-body">
+        <form class="refresh-form" method="POST" action="{{ url_for('auth.refresh_token') }}">
+            <div class="request-button">
+                <input type="text" value="{{ url_for('auth.refresh_token') }}" disabled>
+                <button name="submit">Send</button>
+            </div>
+            <div class="form-input">
+                <label for="refresh-token">Refresh Token</label>
+                <input name="refresh_token" id="refresh-token" type="text">
+            </div>
+            <input name="response-element" value="refresh-json" hidden>
+        </form>
+    </div>
+    <div class="response-body" id="refresh-json">
+        <pre id="refresh-json"></pre>
+    </div>
+ </div>
+
+ <!--Organization Creation -->
+ <div class="request-content">
+    <div class="request-header">
+        <div class="request-text">
+            <div class="request-type post">POST</div>
+            <div class="request-name">Organization Register</div>
+        </div>
+
+
+    </div>
+    <div class="request-body">
+        <form class="organization-form" method="POST" action="{{ url_for('organization.create_organization') }}">
+            <div class="request-button">
+                <input type="text" value="{{ url_for('organization.create_organization') }}" disabled>
+                <button name="submit">Send</button>
+            </div>
+            <div class="form-input">
+                <label for="org-name">Name</label>
+                <input type="text" id="org-name" name="name">
+            </div>
+            <div class="form-input">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" type="text" rows="5"></textarea>
+            </div>
+            <input name="response-element" value="organization-create-json" hidden>
+            <input name="access_token" id="access-token" hidden>
+            <button id="add-member">Add Member</button>
+            <hr>
+        </form>
+    </div>
+    <div class="response-body" id="signup-response">
+        <pre id="organization-create-json"></pre>
+    </div>
+ </div>
+
+
 {% endblock content %}
